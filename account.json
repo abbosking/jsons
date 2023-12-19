@@ -1,0 +1,10 @@
+{
+  "account": {
+    "id": 1,
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "bio": "Software Developer",
+    "status": "Active",
+    "profileImage": "https://example.com/profile_image.jpg"
+  }
+}
