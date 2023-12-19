@@ -3,7 +3,7 @@
     "id": 1,
     "category": "Sorting",
     "name": "Bubble Sort",
-    "description": "Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.",
+    "description": "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.",
     "languages": {
       "python": "def bubble_sort(arr):\n  n = len(arr)\n  for i in range(n):\n    for j in range(0, n-i-1):\n      if arr[j] > arr[j+1]:\n        arr[j], arr[j+1] = arr[j+1], arr[j]\n",
       "java": "void bubbleSort(int arr[]) {\n  int n = arr.length;\n  for (int i = 0; i < n-1; i++)\n    for (int j = 0; j < n-i-1; j++)\n      if (arr[j] > arr[j+1]) {\n        int temp = arr[j];\n        arr[j] = arr[j+1];\n        arr[j+1] = temp;\n      }\n}"
@@ -11,12 +11,129 @@
   },
   {
     "id": 2,
+    "category": "Sorting",
+    "name": "Insertion Sort",
+    "description": "A simple sorting algorithm that builds the final sorted array one item at a time.",
+    "languages": {
+      "java": "void insertionSort(int arr[]) {\n  int n = arr.length;\n  for (int i = 1; i < n; ++i) {\n    int key = arr[i];\n    int j = i-1;\n    while (j >= 0 && arr[j] > key) {\n      arr[j+1] = arr[j];\n      j = j-1;\n    }\n    arr[j+1] = key;\n  }\n}"
+    }
+  },
+  {
+    "id": 3,
+    "category": "Sorting",
+    "name": "Merge Sort",
+    "description": "An efficient, stable, and comparison-based sorting algorithm. Most implementations produce a stable sort.",
+    "languages": {
+      "cpp": "void merge(int arr[], int l, int m, int r) {\n  // Merge logic\n}\n\nvoid mergeSort(int arr[], int l, int r) {\n  if (l < r) {\n    int m = l + (r - l) / 2;\n    mergeSort(arr, l, m);\n    mergeSort(arr, m+1, r);\n    merge(arr, l, m, r);\n  }\n}"
+    }
+  },
+  {
+    "id": 4,
+    "category": "Sorting",
+    "name": "Quick Sort",
+    "description": "An efficient, in-place sorting algorithm that uses a divide-and-conquer strategy to sort an array or list.",
+    "languages": {
+      "javascript": "function quickSort(arr, low, high) {\n  // Quick sort logic\n}"
+    }
+  },
+  {
+    "id": 5,
+    "category": "Sorting",
+    "name": "Selection Sort",
+    "description": "A simple in-place comparison-based sorting algorithm. It divides the input list into a sorted and an unsorted region.",
+    "languages": {
+      "python": "def selection_sort(arr):\n  n = len(arr)\n  for i in range(n):\n    min_index = i\n    for j in range(i+1, n):\n      if arr[j] < arr[min_index]:\n        min_index = j\n    arr[i], arr[min_index] = arr[min_index], arr[i]\n"
+    }
+  },
+  {
+    "id": 6,
     "category": "Searching",
     "name": "Binary Search",
-    "description": "Binary Search is a search algorithm that finds the position of a target value within a sorted array.",
+    "description": "An efficient algorithm for finding an item from a sorted list of items.",
     "languages": {
       "c++": "int binarySearch(int arr[], int low, int high, int x) {\n  if (high >= low) {\n    int mid = low + (high - low) / 2;\n    if (arr[mid] == x)\n      return mid;\n    if (arr[mid] > x)\n      return binarySearch(arr, low, mid - 1, x);\n    return binarySearch(arr, mid + 1, high, x);\n  }\n  return -1;\n}",
       "javascript": "function binarySearch(arr, x) {\n  let low = 0, high = arr.length - 1;\n  while (low <= high) {\n    let mid = Math.floor((low + high) / 2);\n    if (arr[mid] === x)\n      return mid;\n    if (arr[mid] < x)\n      low = mid + 1;\n    else\n      high = mid - 1;\n  }\n  return -1;\n}"
+    }
+  },
+  {
+    "id": 7,
+    "category": "Searching",
+    "name": "Linear Search",
+    "description": "A simple search algorithm that finds the position of a target value within a list.",
+    "languages": {
+      "java": "int linearSearch(int arr[], int x) {\n  int n = arr.length;\n  for (int i = 0; i < n; i++) {\n    if (arr[i] == x)\n      return i;\n  }\n  return -1;\n}"
+    }
+  },
+  {
+    "id": 8,
+    "category": "Searching",
+    "name": "Interpolation Search",
+    "description": "An algorithm for searching for a specific value in a sorted array that uses linear interpolation to find an approximate position.",
+    "languages": {
+      "python": "def interpolation_search(arr, x): \n  lo, hi = 0, len(arr) - 1\n  while lo <= hi and arr[lo] <= x <= arr[hi]:\n    pos = lo + int((float(hi - lo) / (arr[hi] - arr[lo])) * (x - arr[lo]))\n    if arr[pos] == x:\n      return pos\n    if arr[pos] < x:\n      lo = pos + 1\n    else:\n      hi = pos - 1\n  return -1\n"
+    }
+  },
+  {
+    "id": 9,
+    "category": "Searching",
+    "name": "Exponential Search",
+    "description": "A searching algorithm for finding an element from a sorted array.",
+    "languages": {
+      "javascript": "function exponentialSearch(arr, x) {\n  if (arr[0] == x)\n    return 0;\n  int i = 1;\n  while (i < arr.length && arr[i] <= x)\n    i = i * 2;\n  return binarySearch(arr, i / 2, Math.min(i, arr.length), x);\n}"
+    }
+  },
+  {
+    "id": 10,
+    "category": "Searching",
+    "name": "Jump Search",
+    "description": "A searching algorithm for ordered lists. It works by first dividing the search space into smaller blocks and then searching the right block.",
+    "languages": {
+      "python": "def jump_search(arr, x): \n  n = len(arr)\n  step = int(math.sqrt(n))\n  prev = 0\n  while arr[min(step, n)-1] < x:\n    prev = step\n    step += int(math.sqrt(n))\n    if prev >= n:\n      return -1\n  for i in range(prev, min(step, n)):\n    if arr[i] == x:\n      return i\n  return -1\n"
+    }
+  },
+  {
+    "id": 11,
+    "category": "Graph",
+    "name": "Depth-First Search (DFS)",
+    "description": "An algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.",
+    "languages": {
+      "java": "void dfs(int v, boolean visited[], List<List<Integer>> adj) {\n  visited[v] = true;\n  System.out.print(v + \" \");\n  for (Integer neighbor : adj.get(v)) {\n    if (!visited[neighbor])\n      dfs(neighbor, visited, adj);\n  }\n}"
+    }
+  },
+  {
+    "id": 12,
+    "category": "Graph",
+    "name": "Breadth-First Search (BFS)",
+    "description": "An algorithm for traversing or searching tree or graph data structures. The algorithm starts at the tree root and explores the neighbor nodes at the present depth before moving on to nodes at the next depth level.",
+    "languages": {
+      "python": "from collections import deque\n\ndef bfs(graph, start): \n  visited = set()\n  queue = deque([start])\n  visited.add(start)\n  while queue:\n    vertex = queue.popleft()\n    print(vertex, end=' ')\n    for neighbor in graph[vertex]:\n      if neighbor not in visited:\n        visited.add(neighbor)\n        queue.append(neighbor)\n"
+    }
+  },
+  {
+    "id": 13,
+    "category": "Graph",
+    "name": "Dijkstra's Algorithm",
+    "description": "An algorithm for finding the shortest paths between nodes in a graph.",
+    "languages": {
+      "cpp": "void dijkstra(vector<vector<pair<int, int>>>& graph, int start) {\n  // Dijkstra's algorithm logic\n}"
+    }
+  },
+  {
+    "id": 14,
+    "category": "Graph",
+    "name": "Bellman-Ford Algorithm",
+    "description": "An algorithm that computes the shortest paths from a single source vertex to all other vertices in a weighted graph.",
+    "languages": {
+      "java": "void bellmanFord(int graph[][], int V, int E, int src) {\n  // Bellman-Ford algorithm logic\n}"
+    }
+  },
+  {
+    "id": 15,
+    "category": "Graph",
+    "name": "Kruskal's Algorithm",
+    "description": "An algorithm for finding the minimum spanning tree in a connected, undirected graph.",
+    "languages": {
+      "python": "def kruskal(graph): \n  # Kruskal's algorithm logic\n"
     }
   }
 ]
