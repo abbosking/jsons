@@ -16,6 +16,5 @@
       "c++": "int binarySearch(int arr[], int low, int high, int x) {\n  if (high >= low) {\n    int mid = low + (high - low) / 2;\n    if (arr[mid] == x)\n      return mid;\n    if (arr[mid] > x)\n      return binarySearch(arr, low, mid - 1, x);\n    return binarySearch(arr, mid + 1, high, x);\n  }\n  return -1;\n}",
       "javascript": "function binarySearch(arr, x) {\n  let low = 0, high = arr.length - 1;\n  while (low <= high) {\n    let mid = Math.floor((low + high) / 2);\n    if (arr[mid] === x)\n      return mid;\n    if (arr[mid] < x)\n      low = mid + 1;\n    else\n      high = mid - 1;\n  }\n  return -1;\n}"
     }
-  }
-  // Add more algorithms
+  },
 ]
